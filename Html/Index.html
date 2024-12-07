@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Lista de Compras</h1>
+
+    <!-- Formulário para adicionar item -->
+    <div>
+        <input type="text" id="item" placeholder="Adicionar item" />
+        <button onclick="adicionarItem()">Adicionar Novo Item</button>
+    </div>
+
+    <!-- Botões para remover e listar itens -->
+    <div>
+        <button onclick="removerItem()">Remover Item</button>
+        <button onclick="listarItens()">Listar Itens</button>
+    </div>
+
+    <!-- Lista de itens -->
+    <div id="itensList">
+        <ul id="listaItens"></ul>
+    </div>
+</div>
+
+<script>
+    // Função para adicionar item
+    function adicionarItem() {
+        const item = document.getElementById("item").value;
+        fetch("/adicionar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ item })
+        })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => console.error("Erro:", error));
+    }
+
+    // Função para remover item
+    function removerItem() {
+        const item = document.getElementById("item").value;
+        fetch("/remover", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ item })
+        })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => console.error("Erro:", error));
+    }
+
+    // Função para listar os itens
+    function listarItens() {
+        fetch("/listar")
+            .then(response => response.json())
+            .then(data => {
+                const listaItens = document.getElementById("listaItens");
+                listaItens.innerHTML = '';
+                data.items.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    listaItens.appendChild(li);
+                });
+            })
+            .catch(error => console.error("Erro:", error));
+    }
+</script>
+
+</body>
+</html>
+
+
