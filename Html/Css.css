@@ -1,99 +1,63 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Estilização da página */
 body {
-    background-color: #f8f9fa;
-    color: #343a40;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-/* Container principal */
-.container {
-    background-color: #ffffff;
-    width: 90%;
-    max-width: 500px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     text-align: center;
-}
-
-/* Título */
-.container h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #007bff;
-}
-
-/* Formulário para adicionar item */
-.formulario {
-    margin-bottom: 15px;
-}
-
-.formulario input {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.formulario button {
-    padding: 10px 15px;
-    margin-left: 5px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.formulario button:hover {
-    background-color: #0056b3;
-}
-
-/* Botões de remover e listar */
-.botoes {
-    margin-bottom: 20px;
-}
-
-.botoes button {
-    padding: 10px 15px;
-    margin: 5px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.botoes button:hover {
-    background-color: #218838;
-}
-
-/* Lista de itens */
-.lista-itens ul {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
-.lista-itens ul li {
-    padding: 10px;
-    border-bottom: 1px solid #dee2e6;
-    text-align: left;
-    font-size: 16px;
-    color: #495057;
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+}
+
+.icons {
+    margin-top: 40px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    background-color: #bbb;
+    margin: 0 10px;
+    border-radius: 50%;
+    display: inline-block;
 }
