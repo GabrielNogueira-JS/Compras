@@ -1,55 +1,31 @@
+''));
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-}
+                itemQuantity.textContent = `Quantidade: ${quantity + 1}`;
 
-.container {
-    text-align: center;
-    padding: 20px;
-}
+            });
 
-h1 {
-    font-weight: bold;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
+        });
 
-.item {
-    margin: 10px 0;
-    font-size: 1.2em;
-}
+        decrementButtons.forEach(button => {
 
-.item span {
-    margin-right: 10px;
-}
+            button.addEventListener('click', () => {
 
-.item button {
-    padding: 5px 15px;
-    font-size: 1.2em;
-    margin: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
+                const itemQuantity = button.previousElementSibling.previousElementSibling;
 
-.item button:hover {
-    background-color: #45a049;
-}
+                let quantity = parseInt(itemQuantity.textContent.replace('Quantidade: ', ''));
 
-.buttons a {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-}
+                if (quantity > 0) {
 
-.buttons a:hover {
-    background-color: #45a049;
-}
+                    itemQuantity.textContent = `Quantidade: ${quantity - 1}`;
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
