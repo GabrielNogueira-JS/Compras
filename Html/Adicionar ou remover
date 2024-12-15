@@ -1,78 +1,102 @@
-
 <!DOCTYPE html>
+
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Adicionar ou Retirar Alimentos</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
+
     <div class="container">
+
         <h1>Adicionar ou Retirar Alimentos</h1>
-        
+
         <div class="item">
+
             <span>Arroz</span>
-            <span>Quantidade: 10</span>
+
+            <span>Quantidade: 0</span>
+
             <button class="increment">+</button>
+
             <button class="decrement">-</button>
+
+        </div>
+<div class="item">
+<span>Frango</span>
+span>Quantidade: 0</span>
+
+            <button class="increment">+</button>
+
+            <button class="decrement">-</button>
+
         </div>
 
         <div class="item">
-            <span>Feijão</span>
-            <span>Quantidade: 10</span>
-            <button class="increment">+</button>
-            <button class="decrement">-</button>
-        </div>
 
-        <div class="item">
-            <span>Frango</span>
-            <span>Quantidade: 10</span>
-            <button class="increment">+</button>
-            <button class="decrement">-</button>
-        </div>
-
-        <div class="item">
             <span>Carne</span>
-            <span>Quantidade: 10</span>
+
+            <span>Quantidade: 0</span>
+
             <button class="increment">+</button>
+
             <button class="decrement">-</button>
+
         </div>
 
         <div class="item">
+
             <span>Alface</span>
-            <span>Quantidade: 10</span>
+
+            <span>Quantidade: 0</span>
+
             <button class="increment">+</button>
+
             <button class="decrement">-</button>
+
         </div>
 
         <div class="buttons">
-            <a href="https://codepen.io/seu-usuario/pen/NomeDoPenListaCompras" target="_blank">Voltar à Lista de Compras</a>
+
+            <a href="https://codepen.io/GabrielNogueira-JS/pen/pvzEPor"="_blank">Voltar á Lista de Compras</a>
         </div>
+
     </div>
 
     <script>
-        // Funcionalidade de aumentar ou diminuir a quantidade de alimentos
+
+     
+
         const incrementButtons = document.querySelectorAll('.increment');
+
         const decrementButtons = document.querySelectorAll('.decrement');
 
         incrementButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const itemQuantity = button.previousElementSibling;
+const itemQuantity = button.previousElementSibling.previousElementSibling;
+
                 let quantity = parseInt(itemQuantity.textContent.replace('Quantidade: ', ''));
-                itemQuantity.textContent = `Quantidade: ${quantity + 1}`;
+
+                if (quantity > 0) {
+
+                    itemQuantity.textContent = `Quantidade: ${quantity - 1}`;
+
+                }
+
             });
+
         });
 
-        decrementButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const itemQuantity = button.previousElementSibling.previousElementSibling;
-                let quantity = parseInt(itemQuantity.textContent.replace('Quantidade: ', ''));
-                if (quantity > 0) {
-                    itemQuantity.textContent = `Quantidade: ${quantity - 1}`;
-                }
-            });
-        });
     </script>
+
 </body>
+
 </html>
