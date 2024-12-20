@@ -1,7 +1,4 @@
-
-
-   
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -15,7 +12,6 @@
   <div class="container">
     <h1>Adicionar ou Retirar Alimentos</h1>
 
-    <!-- Lista de itens -->
     <div class="item">
       <span>Arroz Integral</span>
       <span>Quantidade: <span class="quantidade">0</span></span>
@@ -58,9 +54,8 @@
       <button class="decrement">-</button>
     </div>
 
-    <!-- Botão de voltar -->
     <div class="buttons">
-      <a href="https://codepen.io/GabrielNogueira-JS/pen/pvzEPor" target="_blank">Voltar à Lista de Compras</a>
+      <a href="index.html">Voltar à Página Inicial</a>
     </div>
   </div>
 
