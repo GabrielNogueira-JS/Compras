@@ -1,21 +1,40 @@
+const items = JSON.parse(localStorage.getItem('items')) || {
+  "Arroz Integral": 0,
+  "Feijão": 0,
+  "Alface": 0,
+  "Tomate": 0,
+  "Carne": 0,
+  "Frango": 0
+};
 
-const incrementButtons = document.querySelectorAll(".increment");
-const decrementButtons = document.querySelectorAll(".decrement");
-incrementButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const quantidadeSpan = button.previousElementSibling.querySelector(".quantidade");
-    let quantidade = parseInt(quantidadeSpan.textContent);
-    quantidadeSpan.textContent = quantidade + 1;
+document.querySelectorAll('.increment').forEach((button, index) => {
+  button.addEventListener('click', () => {
+    const itemName = button.parentElement.children[0].textContent;
+    items[itemName]++;
+    updateQuantities();
+    saveItems();
   });
 });
 
-
-decrementButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const quantidadeSpan = button.previousElementSibling.querySelector(".quantidade");
-    let quantidade = parseInt(quantidadeSpan.textContent);
-    if (quantidade > 0) {
-      quantidadeSpan.textContent = quantidade - 1;
-    }
+document.querySelectorAll('.decrement').forEach((button, index) => {
+  button.addEventListener('click', () => {
+    const itemName = button.parentElement.children[0].textContent;
+    if (items[itemName] > 0) items[itemName]--;
+    updateQuantities();
+    saveItems();
   });
 });
+
+function updateQuantities() {
+  document.querySelectorAll('.quantidade').forEach((element, index) => {
+    const itemName = element.parentElement.parentElement.children[0].textContent;
+    element.textContent = items[itemName];
+  });
+}
+
+function saveItems() {
+  localStorage.setItem('items', JSON.stringify(items));
+}
+
+// Atualiza os valores iniciais ao carregar a página
+updateQuantities();
