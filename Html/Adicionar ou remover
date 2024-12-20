@@ -1,102 +1,70 @@
-<!DOCTYPE html>
 
+
+   
+ <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Adicionar ou Retirar Alimentos</title>
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar ou Retirar Alimentos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <div class="container">
+    <h1>Adicionar ou Retirar Alimentos</h1>
 
-    <div class="container">
-
-        <h1>Adicionar ou Retirar Alimentos</h1>
-
-        <div class="item">
-
-            <span>Arroz</span>
-
-            <span>Quantidade: 0</span>
-
-            <button class="increment">+</button>
-
-            <button class="decrement">-</button>
-
-        </div>
-<div class="item">
-<span>Frango</span>
-span>Quantidade: 0</span>
-
-            <button class="increment">+</button>
-
-            <button class="decrement">-</button>
-
-        </div>
-
-        <div class="item">
-
-            <span>Carne</span>
-
-            <span>Quantidade: 0</span>
-
-            <button class="increment">+</button>
-
-            <button class="decrement">-</button>
-
-        </div>
-
-        <div class="item">
-
-            <span>Alface</span>
-
-            <span>Quantidade: 0</span>
-
-            <button class="increment">+</button>
-
-            <button class="decrement">-</button>
-
-        </div>
-
-        <div class="buttons">
-
-            <a href="https://codepen.io/GabrielNogueira-JS/pen/pvzEPor"="_blank">Voltar á Lista de Compras</a>
-        </div>
-
+    <!-- Lista de itens -->
+    <div class="item">
+      <span>Arroz Integral</span>
+      <span>Quantidade: <span class="quantidade">0</span></span>
+      <button class="increment">+</button>
+      <button class="decrement">-</button>
     </div>
 
-    <script>
+    <div class="item">
+      <span>Feijão</span>
+      <span>Quantidade: <span class="quantidade">0</span></span>
+      <button class="increment">+</button>
+      <button class="decrement">-</button>
+    </div>
 
-     
+    <div class="item">
+      <span>Alface</span>
+      <span>Quantidade: <span class="quantidade">0</span></span>
+      <button class="increment">+</button>
+      <button class="decrement">-</button>
+    </div>
 
-        const incrementButtons = document.querySelectorAll('.increment');
+    <div class="item">
+      <span>Tomate</span>
+      <span>Quantidade: <span class="quantidade">0</span></span>
+      <button class="increment">+</button>
+      <button class="decrement">-</button>
+    </div>
 
-        const decrementButtons = document.querySelectorAll('.decrement');
+    <div class="item">
+      <span>Carne</span>
+      <span>Quantidade: <span class="quantidade">0</span></span>
+      <button class="increment">+</button>
+      <button class="decrement">-</button>
+    </div>
 
-        incrementButtons.forEach(button => {
-const itemQuantity = button.previousElementSibling.previousElementSibling;
+    <div class="item">
+      <span>Frango</span>
+      <span>Quantidade: <span class="quantidade">0</span></span>
+      <button class="increment">+</button>
+      <button class="decrement">-</button>
+    </div>
 
-                let quantity = parseInt(itemQuantity.textContent.replace('Quantidade: ', ''));
+    <!-- Botão de voltar -->
+    <div class="buttons">
+      <a href="https://codepen.io/GabrielNogueira-JS/pen/pvzEPor" target="_blank">Voltar à Lista de Compras</a>
+    </div>
+  </div>
 
-                if (quantity > 0) {
-
-                    itemQuantity.textContent = `Quantidade: ${quantity - 1}`;
-
-                }
-
-            });
-
-        });
-
-    </script>
-
+  <script src="script.js"></script>
 </body>
 
 </html>
