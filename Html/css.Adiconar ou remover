@@ -1,39 +1,72 @@
-    background-color: #4CAF50;
+/* Estilização principal */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-    color: white;
+/* Contêiner */
+.container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
 
-    border: none;
+/* Título */
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-    border-radius: 5px;
+/* Itens da lista */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
+.item span {
+  flex: 1;
+  text-align: left;
+}
+
+.item button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
 .item button:hover {
-
-    background-color: #45a049;
-
+  background-color: #45a049;
 }
 
+/* Botão de voltar */
 .buttons a {
-
-    display: inline-block;
-
-    background-color: #4CAF50;
-
-    color: white;
-
-    padding: 10px 20px;
-
-    text-decoration: none;
-
-    border-radius: 10px;
-
-    font-weight: bold;
-
+  display: block;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 .buttons a:hover {
-
-    background-color: #45a049;
-
+  background-color: #45a049;
 }
