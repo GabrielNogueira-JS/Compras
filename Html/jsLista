@@ -1,29 +1,14 @@
-// Inicializa os itens com os valores salvos no localStorage ou com padrão
-const items = JSON.parse(localStorage.getItem('items')) || {
-    "Arroz Integral": 0,
-    "Feijão": 0,
-    "Alface": 0,
-    "Tomate": 0,
-    "Carne": 0,
-    "Frango": 0
-};
-
-// Seleciona o contêiner onde os itens serão exibidos
 const itemList = document.getElementById('item-list');
+const items = JSON.parse(localStorage.getItem('items')) || {};
 
-// Função para atualizar a lista de itens na página
-function renderItems() {
-    itemList.innerHTML = ''; // Limpa a lista antes de renderizar
-    for (const [itemName, quantity] of Object.entries(items)) {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'item';
-        itemDiv.innerHTML = `
-            <span>${itemName}</span>
-            <span>Quantidade: ${quantity}</span>
-        `;
-        itemList.appendChild(itemDiv);
-    }
+function displayItems() {
+  itemList.innerHTML = '';
+  for (const [item, quantity] of Object.entries(items)) {
+    const li = document.createElement('li');
+    li.textContent = `${item}: ${quantity}`;
+    itemList.appendChild(li);
+  }
 }
 
 // Atualiza a lista ao carregar a página
-renderItems();
+displayItems();
