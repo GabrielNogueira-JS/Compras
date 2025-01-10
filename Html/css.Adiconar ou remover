@@ -1,72 +1,235 @@
-/* Estilização principal */
 body {
+
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 
-/* Contêiner */
-.container {
-  background-color: white;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  width: 100%;
+
+  background-color: #f9f9f9;
+
 }
 
-/* Título */
 h1 {
+
   text-align: center;
+
   color: #333;
+
+}
+
+#form {
+
   margin-bottom: 20px;
-}
 
-/* Itens da lista */
-.item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+
+  justify-content: center;
+
+  gap: 10px;
+
 }
 
-.item span {
-  flex: 1;
-  text-align: left;
-}
+input {
 
-.item button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
+  padding: 10px;
+
+  font-size: 16px;
+
+  border: 1px solid #ccc;
+
   border-radius: 5px;
-  padding: 5px 10px;
-  margin-left: 5px;
-  cursor: pointer;
+
+  width: 200px;
+
 }
 
-.item button:hover {
-  background-color: #45a049;
-}
+button {
 
-/* Botão de voltar */
-.buttons a {
-  display: block;
-  text-align: center;
-  background-color: #4CAF50;
-  color: white;
   padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
-  margin-top: 20px;
+
+  background-color: #4CAF50;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
 }
 
-.buttons a:hover {
+button:hover {
+
   background-color: #45a049;
+
+}
+
+#message {margin-top: 10px;
+
+  font-weight: bold;
+
+}
+
+#item-list {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  margin-top: 20px;
+
+}
+
+/* Estilo para os itens */
+
+.item-container {
+
+  background-color: #fff; /* Fundo branco para cada item */
+
+  padding: 15px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 8px;
+
+  width: 200px;
+
+  text-align: center;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  background-color: #4CAF50; /* Fundo verde para a caixa do item */
+
+  color: white; /* Texto em branco */
+
+}
+
+.item-name {
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+}
+
+.item-quantity {
+
+  font-size: 16px;
+
+  margin-bottom: 10px;
+
+}
+.item-buttons button {
+
+  margin-right: 10px; /* Adiciona um espaçamento à direita dos botões */
+
+}
+
+.item-buttons {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 10px; /* Adiciona espaçamento entre os botões */
+
+}
+
+}
+
+
+.item-buttons button {
+
+  background-color: #4CAF50; /* Fundo verde para os botões */
+
+  color: white;
+
+  border: none;
+
+  padding: 5px 10px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+.item-buttons button:hover {
+
+  background-color: #45a049;
+
+}
+
+.item-buttons .remove {
+
+  background-color: #f44336; /* Fundo vermelho para o botão "Remover" */
+
+}
+
+.item-buttons .remove:hover {
+
+  background-color: #e53935; /* Efeito de hover para o botão "Remover" */
+
+}
+
+/* Estilo para o botão "Remover" */
+
+.delete-btn {
+
+  background-color: red; /* Cor de fundo vermelha */
+
+  color: white;
+
+  padding: 10px 15px;
+
+  font-size: 16px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+margin: 5px;
+
+  transition: background-color 0.3s ease;
+
+}
+
+/* Efeito de hover no botão "Remover" */
+
+.delete-btn:hover {
+
+  background-color: darkred; /* Muda a cor de fundo para darkred quando o mouse passa sobre o botão */
+
+}
+#go-back {
+
+  padding: 10px 15px;
+
+  background-color: #4CAF50;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  margin-bottom: 10px; /* Espaçamento abaixo do botão */
+
+}
+
+#go-back:hover {
+
+  background-color: #45a049;
+
 }
