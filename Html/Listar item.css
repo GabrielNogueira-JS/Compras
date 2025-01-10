@@ -1,65 +1,69 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
 
-.container {
-  background-color: white;
+  height: auto;
+
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  width: 100%;
+
+  background-color: #e8f5e9; /* Cor verde clara */
+
+  border: 2px solid green; /* Borda verde */
+
+  border-radius: 8px;
+
   text-align: center;
+
+  color: green; /* Texto em verde */
+
 }
 
-h1 {
-  color: #333;
-  margin-bottom: 20px;
-}
+button {
 
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
+  background-color: green;
 
-.item span {
-  flex: 1;
-  text-align: left;
-}
-
-.item button {
-  background-color: #4CAF50;
   color: white;
+
   border: none;
+
+  padding: 10px;
+
   border-radius: 5px;
-  padding: 5px 10px;
+
   cursor: pointer;
+
+  font-size: 16px;
+
+  margin-top: 20px;
+
+}
+button:hover {
+
+  background-color: darkgreen;
+
 }
 
-.item button:hover {
-  background-color: #45a049;
-}
+a {
 
-.buttons a {
-  display: inline-block;
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
   text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
-  margin: 10px;
+
+  color: green;
+
+  font-size: 16px;
+
 }
 
-.buttons a:hover {
-  background-color: #45a049;
+a:hover {
+
+  text-decoration: underline;
+
+}
+
+#message {
+
+  margin-top: 20px;
+
+  text-align: center;
+
+  font-weight: bold;
+
+  color: green;
+
 }
