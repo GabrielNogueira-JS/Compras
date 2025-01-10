@@ -1,40 +1,195 @@
-const items = JSON.parse(localStorage.getItem('items')) || {
-  "Arroz Integral": 0,
-  "Feijão": 0,
-  "Alface": 0,
-  "Tomate": 0,
-  "Carne": 0,
-  "Frango": 0
+
+const db = new PouchDB('itens');
+
+// Função para exibir itens
+
+const displayItems = async () => {
+
+  const itemList = document.getElementById('item-list');
+
+  itemList.innerHTML = ''; // Limpa a lista
+
+  const items = await db.allDocs({ include_docs: true });
+
+  items.rows.forEach(item => {
+
+    const itemDiv = document.createElement('div');
+
+    itemDiv.classList.add('item');
+
+    itemDiv.innerHTML = `
+
+      <div class="item-container">
+
+        <span class="item-name">${item.doc.name}</span>
+
+        <div class="item-quantity">
+
+          Quantidade: <span id="quantity-${item.doc._id}">${item.doc.quantity}</span>
+
+        </div>
+
+        <button onclick="incrementItem('${item.doc._id}')">+</button>
+
+        <button onclick="decrementItem('${item.doc._id}')">-</button>
+
+        <button onclick="removeItem('${item.doc._id}')">Remover</button>
+
+      </div>
+
+    `;
+
+    itemList.appendChild(itemDiv);
+
+  });
+
 };
 
-document.querySelectorAll('.increment').forEach((button, index) => {
-  button.addEventListener('click', () => {
-    const itemName = button.parentElement.children[0].textContent;
-    items[itemName]++;
-    updateQuantities();
-    saveItems();
-  });
+// Função para incrementar a quantidade de um item
+
+const incrementItem = async (id) => {
+
+  try {
+
+    const doc = await db.get(id);
+
+    doc.quantity += 1; // Incrementa a quantidade
+
+    await db.put(doc);
+
+    document.getElementById(`quantity-${id}`).textContent = doc.quantity;
+
+  } catch (error) {
+showMessage('Erro ao incrementar item!', 'red');
+
+  }
+
+};
+
+// Função para decrementar a quantidade de um item
+
+const decrementItem = async (id) => {
+
+  try {
+
+    const doc = await db.get(id);
+
+    if (doc.quantity > 0) {
+
+      doc.quantity -= 1; // Decrementa a quantidade (apenas se maior que 0)
+
+      await db.put(doc);
+
+      document.getElementById(`quantity-${id}`).textContent = doc.quantity;
+
+    } else {
+
+      showMessage('A quantidade já está em zero.', 'red');
+
+    }
+
+  } catch (error) {
+
+    showMessage('Erro ao decrementar item!', 'red');
+
+  }
+
+};
+document.getElementById('item-form').addEventListener('submit', async (e) => {
+
+  e.preventDefault();
+
+  const itemName = document.getElementById('item-name').value.trim();
+
+  const itemQuantity = parseInt(document.getElementById('item-quantity').value);
+
+  if (itemName && itemQuantity > 0) {
+
+    try {
+
+      await db.put({ _id: itemName, name: itemName, quantity: itemQuantity });
+
+      displayItems();
+
+      document.getElementById('item-form').reset();
+
+      showMessage('Item adicionado!', 'green');
+
+    } catch (error) {
+
+      showMessage('Erro ao adicionar item!', 'red');
+
+    }
+
+  } else {
+
+    showMessage('Preencha todos os campos corretamente.', 'red');
+
+  }
+
 });
 
-document.querySelectorAll('.decrement').forEach((button, index) => {
-  button.addEventListener('click', () => {
-    const itemName = button.parentElement.children[0].textContent;
-    if (items[itemName] > 0) items[itemName]--;
-    updateQuantities();
-    saveItems();
-  });
+// Função para remover um item
+
+const removeItem = async (id) => {
+
+  try {
+
+    const doc = await db.get(id);
+
+    await db.remove(doc);
+
+    displayItems();
+
+    showMessage('Item removido!', 'green');
+
+  } catch (error) {
+
+    showMessage('Erro ao remover item!', 'red');
+
+  }
+
+};
+
+// Função para gerar arquivo local
+document.getElementById('generate-file').addEventListener('click', async () => {
+
+  try {
+
+    const items = await db.allDocs({ include_docs: true });
+
+    const data = items.rows.map(item => item.doc);
+
+    localStorage.setItem('itens', JSON.stringify(data));
+
+    showMessage('Salvo!', 'black');
+
+  } catch (error) {
+
+    showMessage('Erro ao salvar itens!', 'red');
+
+  }
+
 });
 
-function updateQuantities() {
-  document.querySelectorAll('.quantidade').forEach((element, index) => {
-    const itemName = element.parentElement.parentElement.children[0].textContent;
-    element.textContent = items[itemName];
-  });
-}
+// Função para exibir mensagens
 
-function saveItems() {
-  localStorage.setItem('items', JSON.stringify(items));
-}
+const showMessage = (text, color) => {
 
-// Atualiza os valores iniciais ao carregar a página
-updateQuantities();
+  const message = document.getElementById('message');
+
+  message.textContent = text;
+
+  message.style.color = color;
+
+  setTimeout(() => {
+
+    message.textContent = '';
+
+  }, 2000);
+
+};
+
+// Inicializar ao carregar a página
+
+window.onload = displayItems;
